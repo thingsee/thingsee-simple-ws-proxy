@@ -16,12 +16,12 @@
     "WebSocket",
     "proxy"
   ],
-  "author": "Pasi Jokinen <pasi.jokinen@thingsee.com> (https://pasiaj.com)",
+  "author": "Pasi Jokinen <pasi.jokinen@thingsee.com> (https://thingsee.com)",
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/thingsee/thingsee-ws-proxy/issues"
   },
-  "homepage": "https://github.com/thingsee/thingsee-ws-proxy",
+  "homepage": "https://github.com/thingsee/thingsee-simple-ws-proxy",
   "dependencies": {
     "hapi": "^10.4.1",
     "nodejs-websocket": "^1.4.0"

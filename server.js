@@ -12,7 +12,7 @@ function startWebSocket(port) {
     conn.on("close", function(code, reason) {
       for (var property in clientList) {
         if (clientList.hasOwnProperty(property)) {
-          delete clientList[property]:
+          delete clientList[property];
         }
       }
       console.log("Connection closed")
@@ -24,31 +24,39 @@ function startAPI(settings) {
 
   apiServer.connection({
     host: settings.httpHost,
-    port: httpPort
-  })
+    port: settings.httpPort
+  });
+
+  apiServer.route({
+    method: 'GET',
+    path: '/hello',
+      handler: function (request, reply) {
+        reply('Hello!');
+    }
+  });
+
   apiServer.route({
     method: 'POST',
     path: settings.apiPath,
     handler: function(request, reply) {
 
-      var dId = request.headers.deviceauthuuid;
 
+      var dId = request.headers.deviceauthuuid ? request.headers.deviceauthuuid : 'unknown';
+      console.log('Received POST data: device ' + dId);
       if (clientList.hasOwnProperty(dId)) {
-        console.log('Event from registered device ' + dId);
-
-        clientList[dId].sendText(request.payload);
+        clientList[dId].sendText( JSON.stringify(request.payload) );
       }
       reply();
     }
-  })
 
+  });
   apiServer.start(function() {
-    console.log('APIServer running at:', server.info.uri);
+    console.log('APIServer running at:', apiServer.info.uri);
   });
 
 }
 
-module.exports = function(settings) {
-  startWebSocket(settings.wsPort);
-  startAPI(settings);
+module.exports.listen = function(settings) {
+  startWebSocket( settings.wsPort );
+  startAPI( settings );
 };

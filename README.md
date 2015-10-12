@@ -1,4 +1,4 @@
-# Thingsee WebSocket proxy module for Node
+# Thingsee Simple WebSocket proxy module for Node
 
 Simplest possible HTTP-to-WS proxy to forward Thingsee One HTTP POST requests to Websocket connections.
 
@@ -21,9 +21,9 @@ var TSWS = require('thingsee-ws-proxy');
 
 var settings = {
     wsPort:     8101,
-    httpHost:   'localhost'
     httpPort:   8100,
     apiPath:    '/api/events'
+    //httpHost:   '',
 }
 
 var ws = TSWS.listen(settings);
