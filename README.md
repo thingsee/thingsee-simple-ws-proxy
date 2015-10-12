@@ -6,7 +6,7 @@ This proxy provides no authentication, no authorization, no security and no prop
 
 ## Installation
 
-```npm install thingsee-ws-proxy --save```
+```npm install thingsee-simple-ws-proxy --save```
 
 ## Usage
 
