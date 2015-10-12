@@ -1,6 +1,8 @@
 # Thingsee WebSocket proxy module for Node
 
-A rudimentary proxy to forward Thingsee One HTTP POST requests to Websocket connections.
+Simplest possible HTTP-to-NODE proxy to forward Thingsee One HTTP POST requests to Websocket connections.
+
+This proxy provides no authentication, no authorization, no security and no proper publish/subscribe funcitonality. It takes the received HTTP POST requests from Thingsee One devices and just forwards them to the client (and only the latest one) that has requested them on per-device basis.
 
 ## Installation
 
@@ -8,13 +10,23 @@ A rudimentary proxy to forward Thingsee One HTTP POST requests to Websocket conn
 
 ## Usage
 
+Configure your Thingsee One to send it's events to your proxy server. The default API path is SERVERNAME:PORT/api/events.
+
 Add the proxy to your node app.
 
 ```javascript
 
-// Launch HTTP-to-WS proxu
+// Launch HTTP-to-WS proxy
 var TSWS = require('thignsee-ws-proxy');
-var ws = TSWS.listen(8001);
+
+var settings = {
+    wsPort:     8101,
+    httpHost:   'localhost'
+    httpPort:   8100,
+    apiPath:    '/api/events'
+}
+
+var ws = TSWS.listen(settings);
 
 ```
 
