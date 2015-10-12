@@ -17,7 +17,7 @@ Add the proxy to your node app.
 ```javascript
 
 // Launch HTTP-to-WS proxy
-var TSWS = require('thignsee-ws-proxy');
+var TSWS = require('thingsee-ws-proxy');
 
 var settings = {
     wsPort:     8101,
