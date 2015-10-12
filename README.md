@@ -2,7 +2,7 @@
 
 Simplest possible HTTP-to-WS proxy to forward Thingsee One HTTP POST requests to Websocket connections.
 
-This proxy provides no authentication, no authorization, no security and no proper publish/subscribe funcitonality. It takes the received HTTP POST requests from Thingsee One devices and just forwards them to the client (and only the latest one) that has requested them on per-device basis.
+This proxy provides no authentication, no authorization, no security and no proper publish/subscribe funcitonality. It takes the received HTTP POST requests from a Thingsee One device and just forwards them over a WebSocket to the last client that has requested them.
 
 ## Installation
 
