@@ -34,7 +34,7 @@ Subscribe to device events from your web app.
 
 ```javascript
 
-// Open a websocket connection the TS proxy server
+// Open a websocket connection to the TS proxy server
 var ws = new WebSocket('ws://' + window.location.hostname + ':8001' );
 
 // Subscribe to device events by providing the device UUID
